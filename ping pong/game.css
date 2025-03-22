@@ -1,0 +1,54 @@
+#gamecont{
+  
+    text-align: center;
+}
+#board{
+    border: 5px solid;border-color: grey;
+    height: 500px;width: 500px;background-color: azure;
+}
+
+#reset{
+    border-radius: 10px;
+    width: 80px;height: 35px;
+    font-family: cursive;cursor: pointer; border: none;
+    position: relative;background: #1c1f2b;color: white;
+   
+}
+@property --angle{
+    syntax:"<angle>";
+    initial-value:0deg;
+    inherits:false;
+}
+#reset:hover::after{
+   content: '';
+   background:conic-gradient(from var(--angle),transparent 50%, red , blue);
+   height: 100%;width: 100%;z-index: -1;
+   position:absolute;translate: -50% -50%;top:50%;left: 50%;
+   padding: 2px;border-radius: 10px;
+   box-shadow: 0 0 9px;
+   animation:1s spin linear infinite;
+}
+#startgame{
+    translate: 20%;
+    border-radius: 10px;
+    width: 80px;height: 35px;
+    font-family: cursive;cursor: pointer;border: none;
+    
+}
+#startgame:hover{
+    transform: scale(0.96);
+    animation: pulsate 3s;
+}
+@keyframes pulsate{
+    0%{
+        box-shadow: 0 0 25px lightblue,0 0 50px lightgreen;
+    }
+}
+@keyframes spin{
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
